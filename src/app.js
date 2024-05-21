@@ -4,6 +4,7 @@ const cors = require('cors');
 const router = require('./routes');
 const errorHandler = require('./utils/errorHandler');
 require('dotenv').config();
+require('./models')
 
 // Esta es nuestra aplicación
 const app = express();
@@ -16,7 +17,7 @@ app.use(helmet({
 app.use(cors());
 
 app.use(router);
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     return res.send("Welcome to express!");
 })
 
